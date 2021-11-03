@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
-function App() {
+import HomePage from "../pages/HomePage";
+import AboutPage from "../pages/AboutPage";
+import ProductsPage from "../pages/ProductsPage";
+import RegisterPage from "../pages/RegisterPage";
+import '../assets/css/App.css';
+import ProductContext from '../context/ProductContext';
+
+const App = () => {
+  const [products, setProducts] = useState([({})]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <ProductContext.Provider value={{products, setProducts}}>
+        <Switch>
+          <Route exact path="/">
+            <HomePage/>
+          </Route>
+          <Route exact path="/about">
+            <AboutPage/>
+          </Route>
+          <Route exact path="/products">
+            <ProductsPage/>
+          </Route>
+          <Route exact path="/register">
+            <RegisterPage/>
+          </Route>
+        </Switch>
+      </ProductContext.Provider>
+    </Router>
   );
 }
 
