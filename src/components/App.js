@@ -5,11 +5,12 @@ import {
   Route
 } from "react-router-dom";
 
+import '../assets/css/App.css';
+
 import HomePage from "../pages/HomePage";
 import AboutPage from "../pages/AboutPage";
-import ProductsPage from "../pages/ProductsPage";
+import ProductListingPage from "../pages/ProductListingPage";
 import RegisterPage from "../pages/RegisterPage";
-import '../assets/css/App.css';
 import ProductContext from '../context/ProductContext';
 
 const App = () => {
@@ -25,7 +26,7 @@ const App = () => {
             <AboutPage/>
           </Route>
           <Route exact path="/products">
-            <ProductsPage/>
+            <ProductListingPage/>
           </Route>
           <Route exact path="/register">
             <RegisterPage/>

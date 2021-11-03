@@ -2,15 +2,14 @@ import { useEffect, useContext } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-
-const AboutPage = () => {
+const ProductListingPage = () => {
     return (
         <div id="main-container">
             <Header/>
             <main>
-                <section id="about-section">
+                <section id="products-section">
                     <div>
-                        <h1>About Us</h1>
+                        <h1>Products</h1>
                         <p>Test</p>
                     </div>
                 </section>
@@ -20,4 +19,4 @@ const AboutPage = () => {
     )
 }
 
-export default AboutPage;
+export default ProductListingPage;
