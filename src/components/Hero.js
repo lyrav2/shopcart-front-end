@@ -1,34 +1,59 @@
-import React from 'react';
+import React from "react";
+import { useEffect, useState } from "react";
+import Carousel from "react-bootstrap/Carousel";
+import ProductListingPage from "../pages/ProductListingPage";
 
 const Hero = () => {
-    return (
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="..." alt="First slide"/>
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="..." alt="Second slide"/>
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="..." alt="Third slide"/>
-            </div>
-        </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-    )
-}
+  const [products, setProducts] = useState([]);
+  const [index, setIndex] = useState(0);
+
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
+  };
+  
+  useEffect(() => {
+    fetch("http://localhost:5000/products/?bestseller=true")
+      .then((response) => response.json())
+      .then((json) => {
+        setProducts(json.data);
+      })
+      .catch((err) => {
+        console.log(`An error has occurred: ${err}`);
+      });
+  }, []);
+
+  const heroList = products.map((product) => (
+    <div class="carousel-item">
+      <img
+        key={product.id}
+        class="d-block w-100"
+        src={product.productURL}
+        alt="Slide"
+      />
+    </div>
+  ));
+
+  return (
+    <div id="container">
+      <h2>Shop the latest and greatest.</h2>
+      <div id="hero-section" className="hero-section">
+        <Carousel variant="dark" activeIndex={index} onSelect={handleSelect}>
+          {products.map((product) => (
+            <Carousel.Item key={product.id}>
+              <img
+                className="hero-image d-block w-auto h-auto"
+                src={product.productURL}
+                alt={product.description}
+              />
+              <Carousel.Caption>
+                <p>{product.name}</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+          ))}
+        </Carousel>
+      </div>
+    </div>
+  );
+};
 
 export default Hero;

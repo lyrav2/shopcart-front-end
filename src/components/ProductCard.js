@@ -3,22 +3,18 @@ import {Link} from "react-router-dom";
 
 const ProductCard = (props) => {
     return (
-        <div className = "product-card">
-            <Link to = {`/product/details/{$props.id}`}>
+        <div className="product-card">
+            <Link to={`/product/details/${props.id}`}>
                 <img src={props.image} alt={props.title}/>
             </Link>
 
             <div className="productContent">
-                <h3>{props.title}</h3>
+                <h4>{props.name}</h4>
                 <p>${props.price}</p>
+                <p>in {props.category}</p>
             </div>
         </div>
     )
-}
-
-ProductCard.defaultProps = {
-title: "test",
-price: 5
 }
 
 export default ProductCard;
