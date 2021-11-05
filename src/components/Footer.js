@@ -5,10 +5,10 @@ const Footer = () => {
   return (
     <footer>
       <div className="container-fluid">
-        <div class="row">
-          <div class="col-xs-6 col-md-3">
+        <div className="row">
+          <div className="col-xs-6 col-md-3">
             <h5>Get to Know Us</h5>
-            <ul class="footer-links">
+            <ul>
               <li>
                 <Link to="#">Careers</Link>
               </li>
@@ -23,9 +23,9 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div class="col-xs-6 col-md-3">
+          <div className="col-xs-6 col-md-3">
             <h5>Contact Us</h5>
-            <ul class="footer-links">
+            <ul>
               <li>
                 <Link to="#">Email</Link>
               </li>
@@ -37,9 +37,9 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div class="col-xs-6 col-md-3">
+          <div className="col-xs-6 col-md-3">
             <h5>Customer Support</h5>
-            <ul class="footer-links">
+            <ul>
               <li>
                 <Link to="#">COVID-19 and ShopCart</Link>
               </li>
@@ -54,9 +54,9 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div class="col-xs-6 col-md-3">
+          <div className="col-xs-6 col-md-3">
             <h5>Connect With ShopCart</h5>
-            <ul class="footer-links">
+            <ul>
               <li>
                 <Link to="#">Facebook</Link>
               </li>

@@ -8,6 +8,8 @@ import AboutPage from "../pages/AboutPage";
 import ProductListingPage from "../pages/ProductListingPage";
 import RegisterPage from "../pages/RegisterPage";
 import ProductContext from "../context/ProductContext";
+import CategoryPage from "../pages/CategoryPage";
+import ProductPage from "../pages/ProductPage";
 
 const App = () => {
   const [products, setProducts] = useState([{}]);
@@ -39,16 +41,22 @@ const App = () => {
       <ProductContext.Provider value={{ products, setProducts }}>
         <Switch>
           <Route exact path="/">
-            <HomePage products={products}/>
+            <HomePage products={products} />
           </Route>
           <Route exact path="/about">
             <AboutPage />
           </Route>
           <Route exact path="/products">
-            <ProductListingPage products={products}/>
+            <ProductListingPage products={products} />
           </Route>
           <Route exact path="/register">
             <RegisterPage />
+          </Route>
+          <Route exact path="/categories">
+            <CategoryPage products={products} />
+          </Route>
+          <Route exact path="/product/details/:id">
+            <ProductPage />
           </Route>
         </Switch>
       </ProductContext.Provider>
