@@ -14,17 +14,6 @@ import ProductPage from "../pages/ProductPage";
 const App = () => {
   const [products, setProducts] = useState([{}]);
 
-  const [modal, setModal] = useState({
-    msg: "",
-    visible: false,
-  });
-  const hideModal = () => {
-    setModal({
-      msg: "",
-      visible: false,
-    });
-  };
-
   useEffect(() => {
     fetch("http://localhost:5000/products")
       .then((response) => response.json())

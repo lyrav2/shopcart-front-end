@@ -48,6 +48,20 @@ header li:nth-child(1) {
   padding-left: 35px;
 }
 
+.register-button {
+  float: right;
+  display: block;
+  margin-top: 5vh;
+}
+
+header .toggle-button {
+  padding: 0.2em;
+  box-shadow: none;
+  background: none!important;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
 /* Hero */
 
 .hero-section {
@@ -58,7 +72,6 @@ header li:nth-child(1) {
   padding: 10px;
   height: 30vh;
   max-width: 30vw;
-  z-index: 1;
   color: black;
   font-weight: bolder;
 }
@@ -138,7 +151,7 @@ header li:nth-child(1) {
 
 footer {
   background-color:var(--box-bg-color);
-  width: 99vw;
+  width: 100vw;
   display: inline-flex;
   padding: 35px 0 20px 50px;
 }
@@ -241,4 +254,77 @@ footer h5 {
   padding-right: 8vw;
   padding-top: 8vh;
   padding-bottom: 8vh;
+}
+
+/* Registration Page */
+.registration-section h1 {
+  text-align: center;
+}
+
+/* Registration Form */
+
+.registration-form {
+  margin-left: 20vw;
+  margin-right: 20vw;
+}
+
+.registration-form h2, .register-message {
+  text-align: center;
+}
+
+.registration-form button {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border: 2px solid var(--box-bg-color);
+  width: 10vw;
+}
+
+.registration-form input {
+  border-radius: 5px;
+  outline: none;
+  padding-left: 4px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  background-color: var(--secondary-bg-color);
+  color: var(--primary-text-color);
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.form-control {
+  background-color: var(--primary-bg-color)!important;
+  border: none!important;
+}
+
+.form-control focus {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/* Registration Modal */
+
+.toggle-button {
+  float: right;
+}
+
+.registration-modal {
+  width: 70vw;
+  height: 35vh;
+  background-color: var(--secondary-bg-color);
+  position: absolute;
+  transform: translate(-50%, -100%);
+  top: 50%;
+  left: 50%;
+  z-index: 4;
+  display: inline-block;
+  border-radius: 20px;
+  filter: blur(0);
 }
