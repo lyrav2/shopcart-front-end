@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import RegistrationForm from "../components/RegistrationForm";
 
 class RegisterModal extends React.Component {

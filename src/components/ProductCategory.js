@@ -1,10 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Furniture from '../assets/img/Furniture.png';
-import VideoGames from '../assets/img/Video Games.png';
-import Electronics from '../assets/img/Electronics.png';
-import Kitchenware from '../assets/img/Kitchenware.png';
 
 const ProductCategory = () => {
   const [categories, setCategories] = useState([]);
@@ -23,11 +19,8 @@ const ProductCategory = () => {
   const categoryList = categories.map((category) => (
     <div class="product-category">
       <Link to="/products">
-        <img
-          className="category-img"
-          src={`../assets/img/${category}.png`}
-          alt={category}
-        />
+        <img className="category-img" src={`/${category}.png`} alt={category} />
+        <p>{category}</p>
       </Link>
     </div>
   ));
@@ -35,8 +28,10 @@ const ProductCategory = () => {
   return (
     <section className="product-list-container">
       <div class="container">
-        <Link to="/categories"><h3>Product Categories</h3></Link>
-        {categoryList}
+        <Link to="/categories">
+          <h3>Product Categories</h3>
+        </Link>
+        <div className="categories">{categoryList}</div>
       </div>
     </section>
   );

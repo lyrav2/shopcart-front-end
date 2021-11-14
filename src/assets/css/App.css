@@ -74,6 +74,7 @@ header .toggle-button {
   max-width: 30vw;
   color: black;
   font-weight: bolder;
+  margin-bottom: 5vh;
 }
 
 .hero-image {
@@ -82,7 +83,7 @@ header .toggle-button {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 10vh;
+  margin-bottom: 15vh;
 }
 
 .hero-section h2 {
@@ -104,6 +105,29 @@ header .toggle-button {
   text-overflow: ellipsis;
   font-size: 1.3rem;
   color:var(--secondary-text-color);
+}
+
+/* Product Categories */
+
+.categories {
+  display: table;
+}
+
+.product-category {
+  height: 35vh;
+  width: 15vw;
+  display: table-cell;
+  padding: 10px;
+}
+
+.product-category img {
+  max-width: 20vw;
+  max-height: 20vh;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Best Selling Products */
@@ -183,7 +207,7 @@ footer h5 {
   padding: 20px;
   font-size: 1.3rem;
   margin: 0;
-  resize: horizontal;
+  resize: none;
 }
 
 .product-card {

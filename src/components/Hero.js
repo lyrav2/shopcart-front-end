@@ -1,8 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
-import { Link } from "react-router-dom";
-import ProductListingPage from "../pages/ProductListingPage";
 import "../../node_modules/bootstrap/dist/css/bootstrap.css";
 
 function Hero() {

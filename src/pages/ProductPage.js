@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import ProductCard from "../components/ProductCard";
+import { useParams } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
@@ -19,7 +18,7 @@ const ProductPage = () => {
       .catch((err) => {
         console.log(`An error has occurred: ${err}`);
       });
-  }, []);
+  }, [id]);
 
   return (
     <div id="container">

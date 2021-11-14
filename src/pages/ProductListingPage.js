@@ -1,47 +1,50 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ProductCard from "../components/ProductCard";
 import Pagination from "react-bootstrap/Pagination";
+import ProductContext from "../context/ProductContext";
 
-const ProductListingPage = (props) => {
-  const [products, setProducts] = useState([]);
+const ProductListingPage = () => {
+  const {products} = useContext(ProductContext);
+  const [tempProducts, setTempProducts] = useState(products);
   const [title, setTitle] = useState("Products");
   const [currentPage, setCurrentPage] = useState(1);
-  const [noProducts, setNoProducts] = useState([props.products.length]);
+  const [noProducts, setNoProducts] = useState([products.length]);
+
   const maxItems = 12;
   let items = [];
 
   const categoryList = [
-    ...new Set(props.products.map((product) => product.category)),
+    ...new Set(products.map((product) => product.category)),
   ];
 
   const viewAllProducts = () => {
-    setProducts(props.products.slice(0, maxItems));
-    setNoProducts(props.products.length);
+    setTempProducts(products.slice(0, maxItems));
+    setNoProducts(products.length);
     setTitle("Products");
   };
 
   const viewBestsellers = () => {
-    setProducts(
-      props.products.filter((product) => product.bestseller === true)
+    setTempProducts(
+      products.filter((product) => product.bestseller === true)
     );
     setTitle("Bestsellers");
-    setNoProducts(products.length);
+    setNoProducts(tempProducts.length);
   };
 
   const clickHandler = (item) => {
-    setProducts(
-      props.products.filter((product) => product.category === item.category)
+    setTempProducts(
+      products.filter((product) => product.category === item.category)
     );
     setTitle(item.category);
-    setNoProducts(products.length);
+    setNoProducts(tempProducts.length);
   };
 
   const changePage = (item) => {
     setCurrentPage(item.number);
-    setProducts(props.products.slice(item.number * 12 - 12, item.number * 12));
-    setNoProducts(props.products.length);
+    setTempProducts(products.slice(item.number * 12 - 12, item.number * 12));
+    setNoProducts(products.length);
   };
 
   const populateCategory = categoryList.map((category) => (
@@ -50,7 +53,7 @@ const ProductListingPage = (props) => {
     </li>
   ));
 
-  const showProducts = products.map((product) => (
+  const showProducts = tempProducts.map((product) => (
     <ProductCard
       key={product._id}
       id={product._id}
@@ -75,9 +78,9 @@ const ProductListingPage = (props) => {
   }
 
   useEffect(() => {
-    setProducts(props.products.slice(0, maxItems));
+    setTempProducts(products.slice(0, maxItems));
     setTitle("Products");
-  }, [props]);
+  }, [products]);
 
   return (
     <div id="container">

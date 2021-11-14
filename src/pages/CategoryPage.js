@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ProductCategory from "../components/ProductCategory";
-import Link from 'react';
 
 const CategoryPage = (props) => {
     return (

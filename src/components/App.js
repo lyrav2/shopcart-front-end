@@ -30,19 +30,19 @@ const App = () => {
       <ProductContext.Provider value={{ products, setProducts }}>
         <Switch>
           <Route exact path="/">
-            <HomePage products={products} />
+            <HomePage/>
           </Route>
           <Route exact path="/about">
             <AboutPage />
           </Route>
           <Route exact path="/products">
-            <ProductListingPage products={products} />
+            <ProductListingPage/>
           </Route>
           <Route exact path="/register">
             <RegisterPage />
           </Route>
           <Route exact path="/categories">
-            <CategoryPage products={products} />
+            <CategoryPage />
           </Route>
           <Route exact path="/product/details/:id">
             <ProductPage />
