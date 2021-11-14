@@ -38,6 +38,7 @@ const ProductPage = () => {
               <div className="product-desc">
                 <h4>{product.description}</h4>
                 <p>{product.quantity} left in stock.</p>
+                <p>in {product.category}</p>
               </div>
             </div>
             <div className="col col-xs-3">

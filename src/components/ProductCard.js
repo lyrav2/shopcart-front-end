@@ -17,7 +17,7 @@ const ProductCard = (props) => {
       <div className="product-content">
         <h4>{props.name}</h4>
         <p>${props.price}</p>
-        <p>in {props.category}</p>
+        <p>{props.bestseller ? 'BESTSELLER' : ''} in {props.category}</p>
       </div>
     </div>
   );

@@ -62,6 +62,7 @@ const ProductListingPage = () => {
       price={product.price}
       image={product.productURL}
       category={product.category}
+      bestseller={product.bestseller}
     />
   ));
 
