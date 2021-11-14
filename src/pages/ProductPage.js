@@ -10,7 +10,7 @@ const ProductPage = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch("http://localhost:5000/products/" + id)
+    fetch(`${process.env.REACT_APP_BACK_END_API_DOMAIN}/products/` + id)
       .then((response) => response.json())
       .then((json) => {
         setProduct(json.data);

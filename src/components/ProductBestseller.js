@@ -6,7 +6,7 @@ const ProductBestseller = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/products/?bestseller=true")
+    fetch(`${process.env.REACT_APP_BACK_END_API_DOMAIN}/products/?bestseller=true`)
       .then((response) => response.json())
       .then((json) => {
         setProducts(json.data.slice(0, 5));

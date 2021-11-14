@@ -15,7 +15,7 @@ const RegistrationForm = () => {
   const onCreateAccount = (evt) => {
     evt.preventDefault();
     if (formData.password === confirmPwd) {
-      fetch("http://localhost:5000/users/register", {
+      fetch(`${process.env.REACT_APP_BACK_END_API_DOMAIN}/users/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

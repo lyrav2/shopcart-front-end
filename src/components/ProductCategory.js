@@ -6,7 +6,7 @@ const ProductCategory = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/products/?categories=true")
+    fetch(`${process.env.REACT_APP_BACK_END_API_DOMAIN}/products/?categories=true`)
       .then((response) => response.json())
       .then((json) => {
         setCategories(json.data);
